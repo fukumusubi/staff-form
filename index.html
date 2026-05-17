@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-size: 16px;
+      background: #fff;
+      color: #222;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 14px;
+      background: #fff;
+      box-sizing: border-box;
+    }
+
+    @media (min-width: 768px) {
+      body {
+        background: #eee;
+      }
+
+      .container {
+        margin: 30px auto;
+        border-radius: 10px;
+      }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 20px;
+      margin: 8px 0 18px;
+    }
+
+    h2 {
+      font-size: 15px;
+      margin: 20px 0 10px;
+      padding: 6px 9px;
+      background: #333;
+      color: #fff;
+      border-radius: 4px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 9px;
+      font-size: 13px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 3px;
+      font-size: 16px;
+      box-sizing: border-box;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .row {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .row > div {
+      flex: 1;
+    }
+
+    .short {
+      flex: 0.7;
+    }
+
+    .very-short {
+      flex: 0.45;
+    }
+
+    .dash {
+      font-weight: bold;
+      color: #555;
+      padding-top: 4px;
+    }
+
+    .note {
+      font-size: 12px;
+      color: #666;
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .small-button {
+      width: auto;
+      padding: 7px 10px;
+      margin-top: 6px;
+      font-size: 13px;
+      background: #555;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-button {
+      margin-top: 24px;
+      width: 100%;
+      padding: 13px;
+      font-size: 17px;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .submit-button:disabled {
+      background: #888;
+      cursor: not-allowed;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      font-weight: normal;
+      line-height: 1.5;
+    }
+
+    .checkbox-label input {
+      width: auto;
+      margin-top: 3px;
+    }
+
+    .sub-title {
+      font-weight: bold;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #444;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 3px;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <h1>スタッフ登録カード</h1>
+
+  <form id="staffForm">
+
+    <h2>本人情報</h2>
+
+    <label>氏名</label>
+    <div class="row">
+      <div><input type="text" name="lastName" placeholder="姓" required autofocus></div>
+      <div><input type="text" name="firstName" placeholder="名" required></div>
+    </div>
+
+    <label>フリガナ</label>
+    <div class="row">
+      <div><input type="text" name="lastKana" placeholder="セイ" required></div>
+      <div><input type="text" name="firstKana" placeholder="メイ" required></div>
+    </div>
+
+    <label>性別</label>
+    <select name="gender">
+      <option value="">選択してください</option>
+      <option value="男">男</option>
+      <option value="女">女</option>
+      <option value="回答しない">回答しない</option>
+    </select>
+
+    <label>生年月日</label>
+    <div class="row">
+      <div><select name="birthYear" id="birthYear" required><option value="">年</option></select></div>
+      <div><select name="birthMonth" id="birthMonth" required><option value="">月</option></select></div>
+      <div><select name="birthDay" id="birthDay" required><option value="">日</option></select></div>
+    </div>
+
+    <h2>住所</h2>
+
+    <label>郵便番号</label>
+    <input type="text" name="zipCode" id="zipCode" inputmode="numeric" maxlength="7" placeholder="例：7100055" required>
+    <div class="note">ハイフンなしの7桁で入力してください。</div>
+    <button type="button" class="small-button" onclick="searchAddress()">住所検索</button>
+
+    <label>都道府県</label>
+    <select name="prefecture" id="prefecture" required>
+      <option value="">選択してください</option>
+      <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+      <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option>
+      <option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option>
+      <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+      <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+      <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+      <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+      <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+    </select>
+
+    <label>市区町村</label>
+    <input type="text" name="city" id="city" placeholder="例：倉敷市" required>
+
+    <label>町名・番地</label>
+    <input type="text" name="addressLine" id="addressLine" placeholder="例：阿知1丁目1番1号" required>
+
+    <label>ビル・マンション名等</label>
+    <input type="text" name="building" placeholder="例：〇〇マンション101号室">
+
+    <h2>連絡先</h2>
+
+    <label>電話番号の種類</label>
+    <select name="phoneType" required>
+      <option value="">選択してください</option>
+      <option value="携帯電話">携帯電話</option>
+      <option value="自宅電話">自宅電話</option>
+    </select>
+
+    <label>電話番号</label>
+    <div class="row">
+      <div><input type="text" name="phone1" inputmode="numeric" maxlength="4" required></div>
+      <span class="dash">-</span>
+      <div><input type="text" name="phone2" inputmode="numeric" maxlength="4" required></div>
+      <span class="dash">-</span>
+      <div><input type="text" name="phone3" inputmode="numeric" maxlength="4" required></div>
+    </div>
+
+    <label>メールアドレス</label>
+    <input type="email" name="email" id="email" required>
+    <div class="note">会社からの通知が受信できるメールアドレスを入力してください。</div>
+
+    <label>メールアドレス確認用</label>
+    <input type="email" name="emailConfirm" id="emailConfirm" required>
+
+    <label>PCからのメール受信</label>
+    <select name="pcMailOk">
+      <option value="">選択してください</option>
+      <option value="可">可</option>
+      <option value="否">否</option>
+    </select>
+
+    <h2>緊急連絡先</h2>
+    <div class="note">緊急時に使用します。必ず連絡がつながる方を記入してください。</div>
+
+    <label>親族氏名</label>
+    <div class="row">
+      <div><input type="text" name="emergencyLastName" placeholder="姓" required></div>
+      <div><input type="text" name="emergencyFirstName" placeholder="名" required></div>
+    </div>
+
+    <label>フリガナ</label>
+    <div class="row">
+      <div><input type="text" name="emergencyLastKana" placeholder="セイ" required></div>
+      <div><input type="text" name="emergencyFirstKana" placeholder="メイ" required></div>
+    </div>
+
+    <label>続柄</label>
+    <select name="relationship" id="relationship" onchange="toggleRelationshipOther()" required>
+      <option value="">選択してください</option>
+      <option value="親">親</option>
+      <option value="配偶者">配偶者</option>
+      <option value="子">子</option>
+      <option value="兄弟姉妹">兄弟姉妹</option>
+      <option value="その他">その他</option>
+    </select>
+
+    <div id="relationshipOtherBox" class="hidden">
+      <label>続柄 その他</label>
+      <input type="text" name="relationshipOther" placeholder="例：祖父母、叔父、叔母など">
+    </div>
+
+    <label>携帯電話</label>
+    <div class="row">
+      <div><input type="text" name="emergencyMobile1" inputmode="numeric" maxlength="4" required></div>
+      <span class="dash">-</span>
+      <div><input type="text" name="emergencyMobile2" inputmode="numeric" maxlength="4" required></div>
+      <span class="dash">-</span>
+      <div><input type="text" name="emergencyMobile3" inputmode="numeric" maxlength="4" required></div>
+    </div>
+
+    <label>勤務先名（任意）</label>
+    <input type="text" name="emergencyWorkplace">
+    <div class="note">勤務先の方が繋がりやすい場合は入力してください。</div>
+
+    <label>勤務先電話番号（任意）</label>
+    <div class="row">
+      <div><input type="text" name="emergencyWorkPhone1" inputmode="numeric" maxlength="4"></div>
+      <span class="dash">-</span>
+      <div><input type="text" name="emergencyWorkPhone2" inputmode="numeric" maxlength="4"></div>
+      <span class="dash">-</span>
+      <div><input type="text" name="emergencyWorkPhone3" inputmode="numeric" maxlength="4"></div>
+    </div>
+    <div class="note">勤務先の方が繋がりやすい場合は入力してください。</div>
+
+    <h2>資格等</h2>
+
+    <label>フォークリフト運転技能講習修了</label>
+    <select name="forklift">
+      <option value="">選択してください</option>
+      <option value="あり">あり</option>
+      <option value="なし">なし</option>
+    </select>
+
+    <label>趣味（任意）</label>
+    <input type="text" name="hobby">
+
+    <h2>雇用保険情報</h2>
+
+    <label>週の所定労働時間</label>
+    <select name="weeklyHours" id="weeklyHours" onchange="toggleEmploymentInsuranceFields()" required>
+      <option value="">選択してください</option>
+      <option value="20時間以上">20時間以上</option>
+      <option value="20時間未満">20時間未満</option>
+    </select>
+
+    <div id="employmentInsuranceFields" class="hidden">
+      <label>雇用保険被保険者番号</label>
+      <div class="row">
+        <div><input type="text" name="employmentInsuranceNumber1" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+        <span class="dash">-</span>
+        <div><input type="text" name="employmentInsuranceNumber2" inputmode="numeric" maxlength="6" placeholder="567890"></div>
+        <span class="dash">-</span>
+        <div class="very-short"><input type="text" name="employmentInsuranceNumber3" inputmode="numeric" maxlength="1" placeholder="1"></div>
+      </div>
+
+      <label>前職の会社名</label>
+      <input type="text" name="previousCompany">
+
+      <label>前職の退職日</label>
+      <input type="date" name="previousResignationDate">
+
+      <div class="note">
+        雇用保険被保険者番号が不明な場合は、前職の会社名・退職日を入力してください。
+      </div>
+    </div>
+
+    <h2>社会保険関係</h2>
+
+    <label>健康保険の扶養家族</label>
+    <select name="healthInsuranceDependents" id="healthInsuranceDependents" onchange="toggleDependentNote()" required>
+      <option value="">選択してください</option>
+      <option value="あり">あり</option>
+      <option value="なし">なし</option>
+    </select>
+
+    <div id="dependentNote" class="hidden note">
+      扶養家族がいる場合は、健康保険被扶養者異動届の提出が必要です。
+    </div>
+
+    <h2>振込先</h2>
+
+    <label>金融機関の種類</label>
+    <select name="bankType" id="bankType" onchange="toggleBankFields()" required>
+      <option value="">選択してください</option>
+      <option value="銀行">銀行</option>
+      <option value="ゆうちょ銀行">ゆうちょ銀行</option>
+    </select>
+
+    <div id="normalBankFields" class="hidden">
+      <label>銀行名</label>
+      <input type="text" name="bankName" placeholder="例：トマト銀行">
+
+      <label>支店名</label>
+      <input type="text" name="branchName" placeholder="例：倉敷支店">
+
+      <label>口座種別</label>
+      <select name="accountType">
+        <option value="">選択してください</option>
+        <option value="普通">普通</option>
+        <option value="当座">当座</option>
+      </select>
+
+      <label>口座番号</label>
+      <input type="text" name="accountNumber" inputmode="numeric">
+    </div>
+
+    <div id="jpBankFields" class="hidden">
+      <label>ゆうちょ銀行 記号・番号</label>
+      <div class="row">
+        <div><input type="text" name="jpBankSymbol" inputmode="numeric" maxlength="5" placeholder="記号"></div>
+        <span class="dash">-</span>
+        <div><input type="text" name="jpBankNumber" inputmode="numeric" maxlength="8" placeholder="番号"></div>
+      </div>
+    </div>
+
+    <div class="note">口座情報が分かる通帳またはキャッシュカードの画像は、別途アップロードしてください。</div>
+
+    <h2>通勤情報</h2>
+
+    <label>通勤手段</label>
+    <select name="commute" id="commute" onchange="toggleCommuteFields()" required>
+      <option value="">選択してください</option>
+      <option value="車両">車両</option>
+      <option value="バイク">バイク</option>
+      <option value="自転車">自転車</option>
+      <option value="公共交通機関">公共交通機関</option>
+      <option value="徒歩">徒歩</option>
+    </select>
+
+    <div id="vehicleFields" class="hidden">
+      <div class="sub-title">車両情報①</div>
+
+      <label>ナンバー</label>
+      <div class="row">
+        <div><input type="text" name="vehicle1Area" placeholder="倉敷"></div>
+        <div class="short"><input type="text" name="vehicle1Class" inputmode="numeric" maxlength="3" placeholder="300"></div>
+        <div class="very-short"><input type="text" name="vehicle1Kana" maxlength="1" placeholder="く"></div>
+        <div><input type="text" name="vehicle1Number" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+      </div>
+
+      <label>車種</label>
+      <div class="row">
+        <div><input type="text" name="vehicle1Maker" placeholder="日産"></div>
+        <div><input type="text" name="vehicle1Model" placeholder="マーチ"></div>
+      </div>
+
+      <label>色</label>
+      <input type="text" name="vehicle1Color" placeholder="例：白">
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="addSecondVehicle" onchange="toggleSecondVehicle()">
+        <span>別車両も申告する</span>
+      </label>
+
+      <div id="vehicle2Fields" class="hidden">
+        <div class="sub-title">車両情報②</div>
+
+        <label>ナンバー</label>
+        <div class="row">
+          <div><input type="text" name="vehicle2Area" placeholder="倉敷"></div>
+          <div class="short"><input type="text" name="vehicle2Class" inputmode="numeric" maxlength="3" placeholder="300"></div>
+          <div class="very-short"><input type="text" name="vehicle2Kana" maxlength="1" placeholder="く"></div>
+          <div><input type="text" name="vehicle2Number" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+        </div>
+
+        <label>車種</label>
+        <div class="row">
+          <div><input type="text" name="vehicle2Maker" placeholder="日産"></div>
+          <div><input type="text" name="vehicle2Model" placeholder="マーチ"></div>
+        </div>
+
+        <label>色</label>
+        <input type="text" name="vehicle2Color" placeholder="例：白">
+      </div>
+    </div>
+
+    <div id="publicTransportFields" class="hidden">
+      <label>最寄駅・バス停</label>
+      <input type="text" name="nearestStation" placeholder="例：倉敷駅">
+
+      <label>公共交通機関の経路</label>
+      <textarea name="transportRoute" rows="2" placeholder="例：倉敷駅 → 岡山駅 → 徒歩"></textarea>
+    </div>
+
+    <h2>各種同意事項</h2>
+
+    <label class="checkbox-label">
+      <input type="checkbox" name="privacyConsent" value="同意する" required>
+      <span>業務範囲内において個人情報を使用することに同意します。</span>
+    </label>
+
+    <label class="checkbox-label">
+      <input type="checkbox" name="employmentNoticeElectronicConsent" value="同意する">
+      <span>労働条件通知書を電子交付で受け取ることに同意します。</span>
+    </label>
+
+    <label class="checkbox-label">
+      <input type="checkbox" name="payslipWebConsent" value="同意する">
+      <span>給与明細書をWEB交付で受け取ることに同意します。</span>
+    </label>
+
+    <label class="checkbox-label">
+      <input type="checkbox" name="confidentialityConsent" value="同意する" required>
+      <span>業務上知り得た情報を第三者に漏らさないことに同意します。</span>
+    </label>
+
+    <button type="submit" class="submit-button" id="submitBtn">送信する</button>
+
+  </form>
+</div>
+
+<script>
+  // GASのデプロイURL（/execで終わるURL）
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbzhWaFC0G39qgNmkFIGo7zaD6d_xg0PScEdLuh8yh9pU7tob6M7unXOxPCIpszLIRfM7Q/exec';
+
+  const currentYear = new Date().getFullYear();
+
+  const birthYear = document.getElementById('birthYear');
+  for (let y = currentYear - 15; y >= currentYear - 90; y--) {
+    const option = document.createElement('option');
+    option.value = y;
+    option.textContent = y + '年';
+    birthYear.appendChild(option);
+  }
+
+  const birthMonth = document.getElementById('birthMonth');
+  for (let m = 1; m <= 12; m++) {
+    const option = document.createElement('option');
+    option.value = m;
+    option.textContent = m + '月';
+    birthMonth.appendChild(option);
+  }
+
+  const birthDay = document.getElementById('birthDay');
+  for (let d = 1; d <= 31; d++) {
+    const option = document.createElement('option');
+    option.value = d;
+    option.textContent = d + '日';
+    birthDay.appendChild(option);
+  }
+
+  function searchAddress() {
+    const zip = document.getElementById('zipCode').value.replace(/[^0-9]/g, '');
+    if (zip.length !== 7) {
+      alert('郵便番号はハイフンなし7桁で入力してください。');
+      return;
+    }
+    fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + zip)
+      .then(response => response.json())
+      .then(data => {
+        if (!data.results) {
+          alert('住所が見つかりませんでした。手入力してください。');
+          return;
+        }
+        const result = data.results[0];
+        document.getElementById('prefecture').value = result.address1;
+        document.getElementById('city').value = result.address2;
+        document.getElementById('addressLine').value = result.address3;
+      })
+      .catch(() => {
+        alert('住所検索に失敗しました。手入力してください。');
+      });
+  }
+
+  function toggleRelationshipOther() {
+    const value = document.getElementById('relationship').value;
+    document.getElementById('relationshipOtherBox').classList.toggle('hidden', value !== 'その他');
+  }
+
+  function toggleEmploymentInsuranceFields() {
+    const weeklyHours = document.getElementById('weeklyHours').value;
+    document.getElementById('employmentInsuranceFields').classList.toggle('hidden', weeklyHours !== '20時間以上');
+  }
+
+  function toggleDependentNote() {
+    const value = document.getElementById('healthInsuranceDependents').value;
+    document.getElementById('dependentNote').classList.toggle('hidden', value !== 'あり');
+  }
+
+  function toggleBankFields() {
+    const bankType = document.getElementById('bankType').value;
+    document.getElementById('normalBankFields').classList.toggle('hidden', bankType !== '銀行');
+    document.getElementById('jpBankFields').classList.toggle('hidden', bankType !== 'ゆうちょ銀行');
+  }
+
+  function toggleCommuteFields() {
+    const commute = document.getElementById('commute').value;
+    document.getElementById('vehicleFields').classList.toggle('hidden', commute !== '車両' && commute !== 'バイク');
+    document.getElementById('publicTransportFields').classList.toggle('hidden', commute !== '公共交通機関');
+  }
+
+  function toggleSecondVehicle() {
+    const checked = document.getElementById('addSecondVehicle').checked;
+    document.getElementById('vehicle2Fields').classList.toggle('hidden', !checked);
+  }
+
+  document.getElementById('staffForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const emailConfirm = document.getElementById('emailConfirm').value;
+
+    if (email !== emailConfirm) {
+      alert('メールアドレスが一致していません。');
+      return;
+    }
+
+    const formData = new FormData(e.target);
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中...';
+
+    fetch(GAS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      alert('送信が完了しました。');
+      e.target.reset();
+      toggleRelationshipOther();
+      toggleEmploymentInsuranceFields();
+      toggleDependentNote();
+      toggleBankFields();
+      toggleCommuteFields();
+      toggleSecondVehicle();
+    })
+    .catch(() => {
+      alert('エラーが発生しました。もう一度お試しください。');
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = '送信する';
+    });
+  });
+</script>
+
+</body>
+</html>
