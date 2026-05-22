@@ -23,21 +23,11 @@
     }
 
     @media (min-width: 768px) {
-      body {
-        background: #eee;
-      }
-
-      .container {
-        margin: 30px auto;
-        border-radius: 10px;
-      }
+      body { background: #eee; }
+      .container { margin: 30px auto; border-radius: 10px; }
     }
 
-    h1 {
-      text-align: center;
-      font-size: 20px;
-      margin: 8px 0 18px;
-    }
+    h1 { text-align: center; font-size: 20px; margin: 8px 0 18px; }
 
     h2 {
       font-size: 15px;
@@ -65,9 +55,11 @@
       border-radius: 5px;
     }
 
-    textarea {
-      resize: vertical;
+    input.error, select.error, textarea.error {
+      border-color: #cc0000 !important;
     }
+
+    textarea { resize: vertical; }
 
     .row {
       display: flex;
@@ -75,23 +67,11 @@
       align-items: center;
     }
 
-    .row > div {
-      flex: 1;
-    }
+    .row > div { flex: 1; }
+    .short { flex: 0.7; }
+    .very-short { flex: 0.45; }
 
-    .short {
-      flex: 0.7;
-    }
-
-    .very-short {
-      flex: 0.45;
-    }
-
-    .dash {
-      font-weight: bold;
-      color: #555;
-      padding-top: 4px;
-    }
+    .dash { font-weight: bold; color: #555; padding-top: 4px; }
 
     .note {
       font-size: 12px;
@@ -100,9 +80,44 @@
       line-height: 1.4;
     }
 
-    .hidden {
-      display: none;
+    .note-red {
+      font-size: 12px;
+      color: #cc0000;
+      font-weight: bold;
+      margin-top: 6px;
+      line-height: 1.5;
     }
+
+    .note-blue {
+      font-size: 12px;
+      color: #0055cc;
+      font-weight: bold;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .label-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 9px;
+      flex-wrap: wrap;
+    }
+
+    .label-row .label-text {
+      font-weight: bold;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .label-row .label-note {
+      font-size: 11px;
+      color: #666;
+      font-weight: normal;
+      line-height: 1.4;
+    }
+
+    .hidden { display: none; }
 
     .small-button {
       width: auto;
@@ -141,10 +156,7 @@
       line-height: 1.5;
     }
 
-    .checkbox-label input {
-      width: auto;
-      margin-top: 3px;
-    }
+    .checkbox-label input { width: auto; margin-top: 3px; }
 
     .sub-title {
       font-weight: bold;
@@ -154,15 +166,181 @@
       border-bottom: 1px solid #ddd;
       padding-bottom: 3px;
     }
+
+    .consent-block {
+      margin-top: 14px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    .consent-title {
+      font-weight: bold;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .radio-row {
+      display: flex;
+      gap: 20px;
+      margin-top: 8px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    .radio-label input[type="radio"] {
+      width: auto;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .consent-msg-red {
+      font-size: 12px;
+      color: #cc0000;
+      font-weight: bold;
+      margin-top: 5px;
+      line-height: 1.5;
+    }
+
+    .consent-msg-black {
+      font-size: 12px;
+      color: #222;
+      font-weight: normal;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    a.doc-link {
+      font-size: 12px;
+      color: #0066cc;
+      margin-left: 8px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    .doc-body {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #444;
+      border: 1px solid #ddd;
+      padding: 8px;
+      border-radius: 4px;
+      line-height: 1.7;
+    }
+
+    .inline-error {
+      display: none;
+      background: #fff3f3;
+      border: 1px solid #cc0000;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-top: 6px;
+      font-size: 13px;
+      color: #cc0000;
+      font-weight: bold;
+    }
+
+    .result-msg {
+      display: none;
+      text-align: center;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+    .result-msg.success { background: #e8f5e9; color: #2e7d32; border: 1px solid #a5d6a7; }
+    .result-msg.error-msg { background: #fff3f3; color: #cc0000; border: 1px solid #cc0000; }
+
+    .confirm-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+    .confirm-box {
+      background: #fff;
+      max-width: 640px;
+      margin: 20px auto;
+      border-radius: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .confirm-box h2 {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 16px;
+      background: #333;
+      color: #fff;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    .confirm-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .confirm-table th {
+      background: #f5f5f5;
+      padding: 7px 10px;
+      text-align: left;
+      width: 38%;
+      border: 1px solid #ddd;
+      vertical-align: top;
+      font-weight: bold;
+    }
+    .confirm-table td {
+      padding: 7px 10px;
+      border: 1px solid #ddd;
+      vertical-align: top;
+      word-break: break-all;
+    }
+    .confirm-section {
+      font-weight: bold;
+      font-size: 13px;
+      margin: 14px 0 4px;
+      padding: 4px 8px;
+      background: #333;
+      color: #fff;
+      border-radius: 3px;
+    }
+    .confirm-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .confirm-buttons button {
+      flex: 1;
+      padding: 12px;
+      font-size: 15px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .btn-back { background: #888; color: #fff; }
+    .btn-submit-confirm { background: #222; color: #fff; }
   </style>
 </head>
 
 <body>
 <div class="container">
-  <h1>スタッフ登録カード</h1>
+  <h1>スタッフ登録フォーム</h1>
 
   <form id="staffForm">
 
+    <!-- ===== 本人情報 ===== -->
     <h2>本人情報</h2>
 
     <label>氏名</label>
@@ -173,8 +351,8 @@
 
     <label>フリガナ</label>
     <div class="row">
-      <div><input type="text" name="lastKana" placeholder="セイ" required></div>
-      <div><input type="text" name="firstKana" placeholder="メイ" required></div>
+      <div><input type="text" name="lastKana" placeholder="セイ" required onblur="toFullWidthKana(this)"></div>
+      <div><input type="text" name="firstKana" placeholder="メイ" required onblur="toFullWidthKana(this)"></div>
     </div>
 
     <label>性別</label>
@@ -192,11 +370,14 @@
       <div><select name="birthDay" id="birthDay" required><option value="">日</option></select></div>
     </div>
 
+    <!-- ===== 住所 ===== -->
     <h2>住所</h2>
 
-    <label>郵便番号</label>
+    <div class="label-row">
+      <span class="label-text">郵便番号</span>
+      <span class="label-note">ハイフンなしの7桁で入力してください。</span>
+    </div>
     <input type="text" name="zipCode" id="zipCode" inputmode="numeric" maxlength="7" placeholder="例：7100055" required>
-    <div class="note">ハイフンなしの7桁で入力してください。</div>
     <button type="button" class="small-button" onclick="searchAddress()">住所検索</button>
 
     <label>都道府県</label>
@@ -212,15 +393,19 @@
       <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
     </select>
 
-    <label>市区町村</label>
-    <input type="text" name="city" id="city" placeholder="例：倉敷市" required>
+    <div class="label-row">
+      <span class="label-text">市区町村</span>
+      <span class="label-note">町名まで入力してください。</span>
+    </div>
+    <input type="text" name="city" id="city" placeholder="例：倉敷市阿知" required>
 
-    <label>町名・番地</label>
-    <input type="text" name="addressLine" id="addressLine" placeholder="例：阿知1丁目1番1号" required>
+    <label>番地</label>
+    <input type="text" name="addressLine" id="addressLine" placeholder="例：１丁目１番１号" required onblur="toFullWidthAddress(this)">
 
     <label>ビル・マンション名等</label>
-    <input type="text" name="building" placeholder="例：〇〇マンション101号室">
+    <input type="text" name="building" placeholder="例：〇〇マンション１０１号室" onblur="toFullWidthBuilding(this)">
 
+    <!-- ===== 連絡先 ===== -->
     <h2>連絡先</h2>
 
     <label>電話番号の種類</label>
@@ -232,27 +417,24 @@
 
     <label>電話番号</label>
     <div class="row">
-      <div><input type="text" name="phone1" inputmode="numeric" maxlength="4" required></div>
+      <div><input type="text" name="phone1" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
       <span class="dash">-</span>
-      <div><input type="text" name="phone2" inputmode="numeric" maxlength="4" required></div>
+      <div><input type="text" name="phone2" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
       <span class="dash">-</span>
-      <div><input type="text" name="phone3" inputmode="numeric" maxlength="4" required></div>
+      <div><input type="text" name="phone3" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
     </div>
 
-    <label>メールアドレス</label>
+    <div class="label-row">
+      <span class="label-text">メールアドレス</span>
+      <span class="label-note">会社からの通知が受信できるアドレスを入力してください。</span>
+    </div>
     <input type="email" name="email" id="email" required>
-    <div class="note">会社からの通知が受信できるメールアドレスを入力してください。</div>
 
     <label>メールアドレス確認用</label>
-    <input type="email" name="emailConfirm" id="emailConfirm" required>
+    <input type="email" name="emailConfirm" id="emailConfirm" required onblur="checkEmail()">
+    <div class="inline-error" id="emailError">メールアドレスが一致していません。入力を確認してください。</div>
 
-    <label>PCからのメール受信</label>
-    <select name="pcMailOk">
-      <option value="">選択してください</option>
-      <option value="可">可</option>
-      <option value="否">否</option>
-    </select>
-
+    <!-- ===== 緊急連絡先 ===== -->
     <h2>緊急連絡先</h2>
     <div class="note">緊急時に使用します。必ず連絡がつながる方を記入してください。</div>
 
@@ -264,8 +446,8 @@
 
     <label>フリガナ</label>
     <div class="row">
-      <div><input type="text" name="emergencyLastKana" placeholder="セイ" required></div>
-      <div><input type="text" name="emergencyFirstKana" placeholder="メイ" required></div>
+      <div><input type="text" name="emergencyLastKana" placeholder="セイ" required onblur="toFullWidthKana(this)"></div>
+      <div><input type="text" name="emergencyFirstKana" placeholder="メイ" required onblur="toFullWidthKana(this)"></div>
     </div>
 
     <label>続柄</label>
@@ -285,27 +467,32 @@
 
     <label>携帯電話</label>
     <div class="row">
-      <div><input type="text" name="emergencyMobile1" inputmode="numeric" maxlength="4" required></div>
+      <div><input type="text" name="emergencyMobile1" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
       <span class="dash">-</span>
-      <div><input type="text" name="emergencyMobile2" inputmode="numeric" maxlength="4" required></div>
+      <div><input type="text" name="emergencyMobile2" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
       <span class="dash">-</span>
-      <div><input type="text" name="emergencyMobile3" inputmode="numeric" maxlength="4" required></div>
+      <div><input type="text" name="emergencyMobile3" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
     </div>
 
-    <label>勤務先名（任意）</label>
+    <div class="label-row">
+      <span class="label-text">勤務先名（任意）</span>
+      <span class="label-note">勤務先の方が繋がりやすい場合は入力してください。</span>
+    </div>
     <input type="text" name="emergencyWorkplace">
-    <div class="note">勤務先の方が繋がりやすい場合は入力してください。</div>
 
-    <label>勤務先電話番号（任意）</label>
-    <div class="row">
-      <div><input type="text" name="emergencyWorkPhone1" inputmode="numeric" maxlength="4"></div>
-      <span class="dash">-</span>
-      <div><input type="text" name="emergencyWorkPhone2" inputmode="numeric" maxlength="4"></div>
-      <span class="dash">-</span>
-      <div><input type="text" name="emergencyWorkPhone3" inputmode="numeric" maxlength="4"></div>
+    <div class="label-row">
+      <span class="label-text">勤務先電話番号（任意）</span>
+      <span class="label-note">勤務先の方が繋がりやすい場合は入力してください。</span>
     </div>
-    <div class="note">勤務先の方が繋がりやすい場合は入力してください。</div>
+    <div class="row">
+      <div><input type="text" name="emergencyWorkPhone1" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
+      <span class="dash">-</span>
+      <div><input type="text" name="emergencyWorkPhone2" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
+      <span class="dash">-</span>
+      <div><input type="text" name="emergencyWorkPhone3" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
+    </div>
 
+    <!-- ===== 資格等 ===== -->
     <h2>資格等</h2>
 
     <label>フォークリフト運転技能講習修了</label>
@@ -318,64 +505,124 @@
     <label>趣味（任意）</label>
     <input type="text" name="hobby">
 
+    <!-- ===== 健康保険情報 ===== -->
+    <h2>健康保険情報</h2>
+
+    <div class="label-row">
+      <span class="label-text">加入の有無</span>
+      <span class="label-note">加入の有無については「入社手続きのご案内」のメール本文にてご確認ください。</span>
+    </div>
+    <select name="healthInsuranceStatus" id="healthInsuranceStatus" onchange="toggleHealthInsuranceFields()" required>
+      <option value="">選択してください</option>
+      <option value="加入">加入</option>
+      <option value="非加入">非加入</option>
+    </select>
+
+    <div id="healthInsuranceNonApplicable" class="hidden note" style="margin-top:8px; color:#444;">
+      次の項目へ進んでください。
+    </div>
+
+    <div id="healthInsuranceFields" class="hidden">
+
+      <label>健康保険の扶養家族</label>
+      <select name="healthInsuranceDependents" id="healthInsuranceDependents" onchange="toggleDependentFields()" required>
+        <option value="">選択してください</option>
+        <option value="あり">あり</option>
+        <option value="なし">なし</option>
+      </select>
+
+      <div id="dependentFields" class="hidden">
+        <label>扶養人数</label>
+        <div class="row" style="align-items:center; gap:8px;">
+          <div style="flex:0.4;"><input type="number" name="dependentCount" min="1" max="20" placeholder="0"></div>
+          <span style="font-size:15px; padding-top:6px;">人</span>
+        </div>
+        <div class="note-red" style="margin-top:8px;">
+          扶養家族がいる場合は、健康保険被扶養者異動届を記入して、その画像を別途アップロードしてください。
+        </div>
+      </div>
+
+      <div class="label-row" style="margin-top:12px;">
+        <span class="label-text">マイナ保険証の利用状況</span>
+      </div>
+      <select name="mynaCard" id="mynaCard" onchange="toggleMynaCard()" required>
+        <option value="">選択してください</option>
+        <option value="利用している">利用している</option>
+        <option value="利用していない">利用していない</option>
+      </select>
+      <div id="mynaCardNote" class="hidden note" style="margin-top:6px; color:#444;">
+        資格確認書を発行します。
+      </div>
+
+    </div>
+
+    <!-- ===== 雇用保険情報 ===== -->
     <h2>雇用保険情報</h2>
 
-    <label>週の所定労働時間</label>
+    <div class="label-row">
+      <span class="label-text">加入の有無</span>
+      <span class="label-note">加入の有無については「入社手続きのご案内」のメール本文にてご確認ください。</span>
+    </div>
     <select name="weeklyHours" id="weeklyHours" onchange="toggleEmploymentInsuranceFields()" required>
       <option value="">選択してください</option>
-      <option value="20時間以上">20時間以上</option>
-      <option value="20時間未満">20時間未満</option>
+      <option value="加入">加入</option>
+      <option value="非加入">非加入</option>
     </select>
+
+    <div id="employmentInsuranceNonApplicable" class="hidden note" style="margin-top:8px; color:#444;">
+      次の項目に進んでください。
+    </div>
 
     <div id="employmentInsuranceFields" class="hidden">
       <label>雇用保険被保険者番号</label>
       <div class="row">
-        <div><input type="text" name="employmentInsuranceNumber1" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+        <div><input type="text" name="employmentInsuranceNumber1" inputmode="numeric" maxlength="4" placeholder="1234" onblur="handleInsuranceBlur(this)"></div>
         <span class="dash">-</span>
-        <div><input type="text" name="employmentInsuranceNumber2" inputmode="numeric" maxlength="6" placeholder="567890"></div>
+        <div><input type="text" name="employmentInsuranceNumber2" inputmode="numeric" maxlength="6" placeholder="567890" onblur="handleInsuranceBlur(this)"></div>
         <span class="dash">-</span>
-        <div class="very-short"><input type="text" name="employmentInsuranceNumber3" inputmode="numeric" maxlength="1" placeholder="1"></div>
+        <div class="very-short"><input type="text" name="employmentInsuranceNumber3" inputmode="numeric" maxlength="1" placeholder="1" onblur="handleInsuranceBlur(this)"></div>
+      </div>
+      <div class="inline-error" id="insuranceNumberError">番号を正しく入力してください。（桁数が足りません）</div>
+
+      <div class="note-blue" style="margin-top:8px;">
+        雇用保険被保険者番号が不明な場合は、前職の会社名・退職日を入力してください。
       </div>
 
       <label>前職の会社名</label>
       <input type="text" name="previousCompany">
 
       <label>前職の退職日</label>
-      <input type="date" name="previousResignationDate">
-
-      <div class="note">
-        雇用保険被保険者番号が不明な場合は、前職の会社名・退職日を入力してください。
+      <div class="radio-row" style="margin-top:6px;">
+        <label class="radio-label">
+          <input type="radio" name="resignationDateType" value="指定する" onchange="toggleResignationDate()">
+          退職日を入力する
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="resignationDateType" value="不明" onchange="toggleResignationDate()">
+          不明
+        </label>
+      </div>
+      <div id="resignationDateField" class="hidden" style="margin-top:6px;">
+        <input type="date" name="previousResignationDate">
       </div>
     </div>
 
-    <h2>社会保険関係</h2>
-
-    <label>健康保険の扶養家族</label>
-    <select name="healthInsuranceDependents" id="healthInsuranceDependents" onchange="toggleDependentNote()" required>
-      <option value="">選択してください</option>
-      <option value="あり">あり</option>
-      <option value="なし">なし</option>
-    </select>
-
-    <div id="dependentNote" class="hidden note">
-      扶養家族がいる場合は、健康保険被扶養者異動届の提出が必要です。
-    </div>
-
-    <h2>振込先</h2>
+    <!-- ===== 給与振込先 ===== -->
+    <h2>給与振込先</h2>
 
     <label>金融機関の種類</label>
     <select name="bankType" id="bankType" onchange="toggleBankFields()" required>
       <option value="">選択してください</option>
-      <option value="銀行">銀行</option>
+      <option value="ゆうちょ以外の銀行">ゆうちょ以外の銀行</option>
       <option value="ゆうちょ銀行">ゆうちょ銀行</option>
     </select>
 
     <div id="normalBankFields" class="hidden">
       <label>銀行名</label>
-      <input type="text" name="bankName" placeholder="例：トマト銀行">
+      <input type="text" name="bankName" placeholder="例：トマト銀行" onblur="toBankKana(this)">
 
       <label>支店名</label>
-      <input type="text" name="branchName" placeholder="例：倉敷支店">
+      <input type="text" name="branchName" placeholder="例：倉敷支店" onblur="toBankKana(this)">
 
       <label>口座種別</label>
       <select name="accountType">
@@ -385,26 +632,41 @@
       </select>
 
       <label>口座番号</label>
-      <input type="text" name="accountNumber" inputmode="numeric">
+      <input type="text" name="accountNumber" inputmode="numeric" onblur="toHalfWidthNum(this)">
+
+      <label>口座名義（カタカナで入力してください。）</label>
+      <div class="row">
+        <div><input type="text" name="accountHolderLastKana" placeholder="セイ" onblur="toAccountKana(this)" required></div>
+        <div><input type="text" name="accountHolderFirstKana" placeholder="メイ" onblur="toAccountKana(this)" required></div>
+      </div>
     </div>
 
     <div id="jpBankFields" class="hidden">
       <label>ゆうちょ銀行 記号・番号</label>
       <div class="row">
-        <div><input type="text" name="jpBankSymbol" inputmode="numeric" maxlength="5" placeholder="記号"></div>
+        <div><input type="text" name="jpBankSymbol" inputmode="numeric" maxlength="5" placeholder="記号" onblur="toHalfWidthNum(this)"></div>
         <span class="dash">-</span>
-        <div><input type="text" name="jpBankNumber" inputmode="numeric" maxlength="8" placeholder="番号"></div>
+        <div><input type="text" name="jpBankNumber" inputmode="numeric" maxlength="8" placeholder="番号" onblur="toHalfWidthNum(this)"></div>
+      </div>
+
+      <label>口座名義（カタカナで入力してください。）</label>
+      <div class="row">
+        <div><input type="text" name="accountHolderLastKana" placeholder="セイ" onblur="toAccountKana(this)" required></div>
+        <div><input type="text" name="accountHolderFirstKana" placeholder="メイ" onblur="toAccountKana(this)" required></div>
       </div>
     </div>
 
-    <div class="note">口座情報が分かる通帳またはキャッシュカードの画像は、別途アップロードしてください。</div>
+    <div id="bankSelectedNote" class="hidden note-red" style="margin-top:10px;">
+      確認資料として、口座情報が分かる通帳またはキャッシュカードの画像を別途アップロードしてください。
+    </div>
 
+    <!-- ===== 通勤情報 ===== -->
     <h2>通勤情報</h2>
 
     <label>通勤手段</label>
     <select name="commute" id="commute" onchange="toggleCommuteFields()" required>
       <option value="">選択してください</option>
-      <option value="車両">車両</option>
+      <option value="自動車">自動車</option>
       <option value="バイク">バイク</option>
       <option value="自転車">自転車</option>
       <option value="公共交通機関">公共交通機関</option>
@@ -412,26 +674,31 @@
     </select>
 
     <div id="vehicleFields" class="hidden">
+
       <div class="sub-title">車両情報①</div>
 
       <label>ナンバー</label>
       <div class="row">
         <div><input type="text" name="vehicle1Area" placeholder="倉敷"></div>
-        <div class="short"><input type="text" name="vehicle1Class" inputmode="numeric" maxlength="3" placeholder="300"></div>
+        <div class="short"><input type="text" name="vehicle1Class" inputmode="numeric" maxlength="3" placeholder="300" onblur="toHalfWidthNum(this)"></div>
         <div class="very-short"><input type="text" name="vehicle1Kana" maxlength="1" placeholder="く"></div>
-        <div><input type="text" name="vehicle1Number" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+        <div><input type="text" name="vehicle1Number" inputmode="numeric" maxlength="4" placeholder="1234" onblur="toHalfWidthNum(this)"></div>
       </div>
 
       <label>車種</label>
       <div class="row">
-        <div><input type="text" name="vehicle1Maker" placeholder="日産"></div>
-        <div><input type="text" name="vehicle1Model" placeholder="マーチ"></div>
+        <div><input type="text" name="vehicle1Maker" placeholder="日産" onblur="toFullWidthKanaIfKana(this)"></div>
+        <div><input type="text" name="vehicle1Model" placeholder="マーチ" onblur="toFullWidthKanaIfKana(this)"></div>
       </div>
 
       <label>色</label>
-      <input type="text" name="vehicle1Color" placeholder="例：白">
+      <input type="text" name="vehicle1Color" placeholder="例：白" onblur="toFullWidthKanaIfKana(this)">
 
-      <label class="checkbox-label">
+      <div class="note-red" style="margin-top:10px;">
+        運転免許証、自賠責保険及び任意保険の証書の画像を別途アップロードしてください。（２台目も含む）
+      </div>
+
+      <label class="checkbox-label" style="margin-top:10px;">
         <input type="checkbox" id="addSecondVehicle" onchange="toggleSecondVehicle()">
         <span>別車両も申告する</span>
       </label>
@@ -442,20 +709,24 @@
         <label>ナンバー</label>
         <div class="row">
           <div><input type="text" name="vehicle2Area" placeholder="倉敷"></div>
-          <div class="short"><input type="text" name="vehicle2Class" inputmode="numeric" maxlength="3" placeholder="300"></div>
+          <div class="short"><input type="text" name="vehicle2Class" inputmode="numeric" maxlength="3" placeholder="300" onblur="toHalfWidthNum(this)"></div>
           <div class="very-short"><input type="text" name="vehicle2Kana" maxlength="1" placeholder="く"></div>
-          <div><input type="text" name="vehicle2Number" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+          <div><input type="text" name="vehicle2Number" inputmode="numeric" maxlength="4" placeholder="1234" onblur="toHalfWidthNum(this)"></div>
         </div>
 
         <label>車種</label>
         <div class="row">
-          <div><input type="text" name="vehicle2Maker" placeholder="日産"></div>
-          <div><input type="text" name="vehicle2Model" placeholder="マーチ"></div>
+          <div><input type="text" name="vehicle2Maker" placeholder="日産" onblur="toFullWidthKanaIfKana(this)"></div>
+          <div><input type="text" name="vehicle2Model" placeholder="マーチ" onblur="toFullWidthKanaIfKana(this)"></div>
         </div>
 
         <label>色</label>
-        <input type="text" name="vehicle2Color" placeholder="例：白">
+        <input type="text" name="vehicle2Color" placeholder="例：白" onblur="toFullWidthKanaIfKana(this)">
       </div>
+    </div>
+
+    <div id="bicycleNote" class="hidden note-red" style="margin-top:10px;">
+      自転車保険の証書の画像を別途アップロードしてください。
     </div>
 
     <div id="publicTransportFields" class="hidden">
@@ -466,164 +737,624 @@
       <textarea name="transportRoute" rows="2" placeholder="例：倉敷駅 → 岡山駅 → 徒歩"></textarea>
     </div>
 
+    <!-- ===== 各種同意事項 ===== -->
     <h2>各種同意事項</h2>
 
-    <label class="checkbox-label">
-      <input type="checkbox" name="privacyConsent" value="同意する" required>
-      <span>業務範囲内において個人情報を使用することに同意します。</span>
-    </label>
+    <!-- 1. 個人情報利用同意 -->
+    <div class="consent-block">
+      <div class="consent-title">
+        個人情報の利用について
+        <a class="doc-link" onclick="toggleDoc('privacyPolicyDoc')">▼ 詳細を見る</a>
+      </div>
+      <div id="privacyPolicyDoc" class="doc-body hidden">
+        会社は、取得した個人情報を人事労務管理に必要な範囲内で利用します。取得した個人情報は適切に管理し、法令に基づく場合または業務遂行上必要な範囲を除き、第三者へ提供いたしません。
+      </div>
+      <div class="radio-row">
+        <label class="radio-label">
+          <input type="radio" name="privacyConsent" value="同意する" onchange="updateConsentMsg('privacyConsent')" required>
+          同意する
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="privacyConsent" value="同意しない" onchange="updateConsentMsg('privacyConsent')">
+          同意しない
+        </label>
+      </div>
+      <div id="privacyConsentMsg" class="consent-msg-red hidden">
+        入社手続きが保留となります。別途ご連絡いたします。
+      </div>
+    </div>
 
-    <label class="checkbox-label">
-      <input type="checkbox" name="employmentNoticeElectronicConsent" value="同意する">
-      <span>労働条件通知書を電子交付で受け取ることに同意します。</span>
-    </label>
+    <!-- 2. 労働条件通知書電子交付同意 -->
+    <div class="consent-block">
+      <div class="consent-title">
+        労働条件通知書の電子交付について
+        <a class="doc-link" onclick="toggleDoc('employmentNoticeDoc')">▼ 詳細を見る</a>
+      </div>
+      <div id="employmentNoticeDoc" class="doc-body hidden">
+        当社では、労働条件通知書をメールまたは専用サービスを利用して電子的に交付しております。スマートフォン等から通知書を確認・受領することができます。
+      </div>
+      <div class="radio-row">
+        <label class="radio-label">
+          <input type="radio" name="employmentNoticeElectronicConsent" value="同意する" onchange="updateConsentMsg('employmentNoticeElectronicConsent')" required>
+          同意する
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="employmentNoticeElectronicConsent" value="同意しない" onchange="updateConsentMsg('employmentNoticeElectronicConsent')">
+          同意しない
+        </label>
+      </div>
+      <div id="employmentNoticeElectronicConsentMsg" class="consent-msg-black hidden">
+        ※入社後に書面で交付します。
+      </div>
+    </div>
 
-    <label class="checkbox-label">
-      <input type="checkbox" name="payslipWebConsent" value="同意する">
-      <span>給与明細書をWEB交付で受け取ることに同意します。</span>
-    </label>
+    <!-- 3. 給与明細書電子交付同意 -->
+    <div class="consent-block">
+      <div class="consent-title">
+        給与明細書の電子交付について
+        <a class="doc-link" onclick="toggleDoc('payslipDoc')">▼ 詳細を見る</a>
+      </div>
+      <div id="payslipDoc" class="doc-body hidden">
+        当社では、給与明細書を専用サービスを利用して電子的に交付しております。スマートフォン等から明細書を確認できるほか、各種通知書類等を受領できます。
+      </div>
+      <div class="radio-row">
+        <label class="radio-label">
+          <input type="radio" name="payslipWebConsent" value="同意する" onchange="updateConsentMsg('payslipWebConsent')" required>
+          同意する
+        </label>
+        <label class="radio-label">
+          <input type="radio" name="payslipWebConsent" value="同意しない" onchange="updateConsentMsg('payslipWebConsent')">
+          同意しない
+        </label>
+      </div>
+      <div id="payslipWebConsentMsg" class="consent-msg-black hidden">
+        ※支給日に書面で交付します。
+      </div>
+    </div>
 
-    <label class="checkbox-label">
-      <input type="checkbox" name="confidentialityConsent" value="同意する" required>
-      <span>業務上知り得た情報を第三者に漏らさないことに同意します。</span>
-    </label>
+    <div class="inline-error" id="formError" style="margin-top:12px;"></div>
+    <div class="result-msg success" id="successMsg">登録ありがとうございました。</div>
 
     <button type="submit" class="submit-button" id="submitBtn">送信する</button>
 
   </form>
+
+  <!-- ===== 確認画面 ===== -->
+  <div class="confirm-overlay" id="confirmOverlay">
+    <div class="confirm-box">
+      <h2>入力内容の確認</h2>
+      <div id="confirmContent"></div>
+      <div class="confirm-buttons">
+        <button type="button" class="btn-back" onclick="closeConfirm()">修正する</button>
+        <button type="button" class="btn-submit-confirm" id="confirmSubmitBtn" onclick="doSubmit()">送信する</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
-  // GASのデプロイURL（/execで終わるURL）
+  // ===== GASのデプロイURL =====
   const GAS_URL = 'https://script.google.com/macros/s/AKfycbwvrut4NctmvPUY2ARi4x7hai-iYi31dl9tTMKffpRN5IPdbM6KizfHpZ_3sDzzipzmXA/exec';
 
+  // ===== 生年月日の選択肢生成 =====
   const currentYear = new Date().getFullYear();
-
   const birthYear = document.getElementById('birthYear');
   for (let y = currentYear - 15; y >= currentYear - 90; y--) {
-    const option = document.createElement('option');
-    option.value = y;
-    option.textContent = y + '年';
-    birthYear.appendChild(option);
+    const opt = document.createElement('option');
+    opt.value = y; opt.textContent = y + '年';
+    birthYear.appendChild(opt);
   }
-
   const birthMonth = document.getElementById('birthMonth');
   for (let m = 1; m <= 12; m++) {
-    const option = document.createElement('option');
-    option.value = m;
-    option.textContent = m + '月';
-    birthMonth.appendChild(option);
+    const opt = document.createElement('option');
+    opt.value = m; opt.textContent = m + '月';
+    birthMonth.appendChild(opt);
   }
-
   const birthDay = document.getElementById('birthDay');
   for (let d = 1; d <= 31; d++) {
-    const option = document.createElement('option');
-    option.value = d;
-    option.textContent = d + '日';
-    birthDay.appendChild(option);
+    const opt = document.createElement('option');
+    opt.value = d; opt.textContent = d + '日';
+    birthDay.appendChild(opt);
   }
 
+  // ===== 文字変換ユーティリティ =====
+  const hankakuToZenkaku = {
+    'ｦ':'ヲ','ｧ':'ァ','ｨ':'ィ','ｩ':'ゥ','ｪ':'ェ','ｫ':'ォ','ｬ':'ャ','ｭ':'ュ','ｮ':'ョ',
+    'ｯ':'ッ','ｰ':'ー','ｱ':'ア','ｲ':'イ','ｳ':'ウ','ｴ':'エ','ｵ':'オ','ｶ':'カ','ｷ':'キ',
+    'ｸ':'ク','ｹ':'ケ','ｺ':'コ','ｻ':'サ','ｼ':'シ','ｽ':'ス','ｾ':'セ','ｿ':'ソ','ﾀ':'タ',
+    'ﾁ':'チ','ﾂ':'ツ','ﾃ':'テ','ﾄ':'ト','ﾅ':'ナ','ﾆ':'ニ','ﾇ':'ヌ','ﾈ':'ネ','ﾉ':'ノ',
+    'ﾊ':'ハ','ﾋ':'ヒ','ﾌ':'フ','ﾍ':'ヘ','ﾎ':'ホ','ﾏ':'マ','ﾐ':'ミ','ﾑ':'ム','ﾒ':'メ',
+    'ﾓ':'モ','ﾔ':'ヤ','ﾕ':'ユ','ﾖ':'ヨ','ﾗ':'ラ','ﾘ':'リ','ﾙ':'ル','ﾚ':'レ','ﾛ':'ロ',
+    'ﾜ':'ワ','ﾝ':'ン','ﾞ':'゛','ﾟ':'゜'
+  };
+
+  function hankakuKanaToZenkaku(str) {
+    const dakuten = {'カ':'ガ','キ':'ギ','ク':'グ','ケ':'ゲ','コ':'ゴ','サ':'ザ','シ':'ジ','ス':'ズ','セ':'ゼ','ソ':'ゾ','タ':'ダ','チ':'ヂ','ツ':'ヅ','テ':'デ','ト':'ド','ハ':'バ','ヒ':'ビ','フ':'ブ','ヘ':'ベ','ホ':'ボ','ウ':'ヴ'};
+    const handakuten = {'ハ':'パ','ヒ':'ピ','フ':'プ','ヘ':'ペ','ホ':'ポ'};
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+      const ch = str[i];
+      const next = str[i+1];
+      const zen = hankakuToZenkaku[ch];
+      if (zen) {
+        if (next === 'ﾞ' && dakuten[zen]) { result += dakuten[zen]; i++; }
+        else if (next === 'ﾟ' && handakuten[zen]) { result += handakuten[zen]; i++; }
+        else { result += zen; }
+      } else {
+        result += ch;
+      }
+    }
+    return result;
+  }
+
+  function hiraganaToKatakana(str) {
+    return str.replace(/[\u3041-\u3096]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60));
+  }
+
+  function toHalfWidthNumStr(str) {
+    return str.replace(/[０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0))
+              .replace(/[－‐―]/g, '-');
+  }
+
+  const zenkakuToHankaku = {
+    'ア':'ｱ','イ':'ｲ','ウ':'ｳ','エ':'ｴ','オ':'ｵ','カ':'ｶ','キ':'ｷ','ク':'ｸ','ケ':'ｹ','コ':'ｺ',
+    'サ':'ｻ','シ':'ｼ','ス':'ｽ','セ':'ｾ','ソ':'ｿ','タ':'ﾀ','チ':'ﾁ','ツ':'ﾂ','テ':'ﾃ','ト':'ﾄ',
+    'ナ':'ﾅ','ニ':'ﾆ','ヌ':'ﾇ','ネ':'ﾈ','ノ':'ﾉ','ハ':'ﾊ','ヒ':'ﾋ','フ':'ﾌ','ヘ':'ﾍ','ホ':'ﾎ',
+    'マ':'ﾏ','ミ':'ﾐ','ム':'ﾑ','メ':'ﾒ','モ':'ﾓ','ヤ':'ﾔ','ユ':'ﾕ','ヨ':'ﾖ',
+    'ラ':'ﾗ','リ':'ﾘ','ル':'ﾙ','レ':'ﾚ','ロ':'ﾛ','ワ':'ﾜ','ヲ':'ｦ','ン':'ﾝ',
+    'ァ':'ｧ','ィ':'ｨ','ゥ':'ｩ','ェ':'ｪ','ォ':'ｫ','ャ':'ｬ','ュ':'ｭ','ョ':'ｮ','ッ':'ｯ','ー':'ｰ',
+    'ガ':'ｶﾞ','ギ':'ｷﾞ','グ':'ｸﾞ','ゲ':'ｹﾞ','ゴ':'ｺﾞ','ザ':'ｻﾞ','ジ':'ｼﾞ','ズ':'ｽﾞ','ゼ':'ｾﾞ','ゾ':'ｿﾞ',
+    'ダ':'ﾀﾞ','ヂ':'ﾁﾞ','ヅ':'ﾂﾞ','デ':'ﾃﾞ','ド':'ﾄﾞ','バ':'ﾊﾞ','ビ':'ﾋﾞ','ブ':'ﾌﾞ','ベ':'ﾍﾞ','ボ':'ﾎﾞ',
+    'パ':'ﾊﾟ','ピ':'ﾋﾟ','プ':'ﾌﾟ','ペ':'ﾍﾟ','ポ':'ﾎﾟ','ヴ':'ｳﾞ'
+  };
+
+  function zenkakuKanaToHankaku(str) {
+    return str.replace(/[ァ-ヶー]/g, ch => zenkakuToHankaku[ch] || ch);
+  }
+
+  function toFullWidthKana(input) {
+    let v = input.value;
+    v = hankakuKanaToZenkaku(v);
+    v = hiraganaToKatakana(v);
+    input.value = v;
+    let errEl = input.parentNode.querySelector('.kana-error');
+    if (!errEl) {
+      errEl = document.createElement('div');
+      errEl.className = 'kana-error';
+      errEl.style.cssText = 'font-size:12px;color:#cc0000;font-weight:bold;margin-top:3px;';
+      input.parentNode.appendChild(errEl);
+    }
+    if (v && !/^[ァ-ヶー　 ]*$/.test(v)) {
+      input.classList.add('error');
+      errEl.textContent = 'カタカナで入力してください。';
+    } else {
+      input.classList.remove('error');
+      errEl.textContent = '';
+    }
+  }
+
+  function toBankKana(input) {
+    let v = input.value;
+    v = hankakuKanaToZenkaku(v);
+    v = hiraganaToKatakana(v);
+    input.value = v;
+  }
+
+  function toAccountKana(input) {
+    let v = input.value;
+    v = hankakuKanaToZenkaku(v);
+    v = hiraganaToKatakana(v);
+    v = zenkakuKanaToHankaku(v);
+    input.value = v;
+    let errEl = input.parentNode.querySelector('.kana-error');
+    if (!errEl) {
+      errEl = document.createElement('div');
+      errEl.className = 'kana-error';
+      errEl.style.cssText = 'font-size:12px;color:#cc0000;font-weight:bold;margin-top:3px;';
+      input.parentNode.appendChild(errEl);
+    }
+    if (v && !/^[ｦ-ﾟ　 ]*$/.test(v)) {
+      input.classList.add('error');
+      errEl.textContent = 'カタカナで入力してください。';
+    } else {
+      input.classList.remove('error');
+      errEl.textContent = '';
+    }
+  }
+
+  function toFullWidthAddress(input) {
+    let v = input.value;
+    v = v.replace(/[0-9]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0xFEE0));
+    v = v.replace(/-/g, '－');
+    input.value = v;
+  }
+
+  function toFullWidthBuilding(input) {
+    let v = input.value;
+    v = v.replace(/[A-Za-z]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0xFEE0));
+    v = v.replace(/[0-9]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0xFEE0));
+    v = v.replace(/-/g, '－');
+    v = hankakuKanaToZenkaku(v);
+    v = hiraganaToKatakana(v);
+    input.value = v;
+  }
+
+  function toHalfWidthNum(input) {
+    let v = input.value;
+    v = toHalfWidthNumStr(v);
+    v = v.replace(/[^0-9]/g, '');
+    input.value = v;
+  }
+
+  function toFullWidthKanaIfKana(input) {
+    let v = input.value;
+    v = v.replace(/[０-９]/g, ch => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0));
+    if (/[ｦ-ﾟ]/.test(v)) v = hankakuKanaToZenkaku(v);
+    if (/[\u3041-\u3096]/.test(v)) v = hiraganaToKatakana(v);
+    input.value = v;
+  }
+
+  // ===== 郵便番号住所検索 =====
   function searchAddress() {
     const zip = document.getElementById('zipCode').value.replace(/[^0-9]/g, '');
     if (zip.length !== 7) {
-      alert('郵便番号はハイフンなし7桁で入力してください。');
+      showInlineError('郵便番号はハイフンなし7桁で入力してください。');
       return;
     }
     fetch('https://zipcloud.ibsnet.co.jp/api/search?zipcode=' + zip)
-      .then(response => response.json())
+      .then(r => r.json())
       .then(data => {
-        if (!data.results) {
-          alert('住所が見つかりませんでした。手入力してください。');
-          return;
-        }
-        const result = data.results[0];
-        document.getElementById('prefecture').value = result.address1;
-        document.getElementById('city').value = result.address2;
-        document.getElementById('addressLine').value = result.address3;
+        if (!data.results) { showInlineError('住所が見つかりませんでした。手入力してください。'); return; }
+        const res = data.results[0];
+        document.getElementById('prefecture').value = res.address1;
+        document.getElementById('city').value = res.address2 + res.address3;
+        document.getElementById('addressLine').value = '';
       })
-      .catch(() => {
-        alert('住所検索に失敗しました。手入力してください。');
-      });
+      .catch(() => showInlineError('住所検索に失敗しました。手入力してください。'));
   }
 
+  function showInlineError(msg) {
+    const el = document.getElementById('formError');
+    el.textContent = msg;
+    el.style.display = 'block';
+    setTimeout(() => { el.style.display = 'none'; }, 4000);
+  }
+
+  // ===== メールアドレス一致チェック =====
+  function checkEmail() {
+    const email = document.getElementById('email').value;
+    const emailConfirm = document.getElementById('emailConfirm').value;
+    const errEl = document.getElementById('emailError');
+    if (emailConfirm && email !== emailConfirm) {
+      errEl.style.display = 'block';
+      document.getElementById('emailConfirm').classList.add('error');
+    } else {
+      errEl.style.display = 'none';
+      document.getElementById('emailConfirm').classList.remove('error');
+    }
+  }
+
+  // ===== 雇用保険番号チェック =====
+  function handleInsuranceBlur(input) {
+    toHalfWidthNum(input);
+    const n1 = document.querySelector('input[name="employmentInsuranceNumber1"]').value;
+    const n2 = document.querySelector('input[name="employmentInsuranceNumber2"]').value;
+    const n3 = document.querySelector('input[name="employmentInsuranceNumber3"]').value;
+    const errEl = document.getElementById('insuranceNumberError');
+    if (n1 && n2 && n3) {
+      errEl.style.display = (n1.length < 4 || n2.length < 6 || n3.length < 1) ? 'block' : 'none';
+    } else {
+      errEl.style.display = 'none';
+    }
+  }
+
+  // ===== 退職日ラジオ =====
+  function toggleResignationDate() {
+    const val = document.querySelector('input[name="resignationDateType"]:checked');
+    document.getElementById('resignationDateField').classList.toggle('hidden', !val || val.value !== '指定する');
+  }
+
+  // ===== 各種トグル =====
   function toggleRelationshipOther() {
-    const value = document.getElementById('relationship').value;
-    document.getElementById('relationshipOtherBox').classList.toggle('hidden', value !== 'その他');
+    document.getElementById('relationshipOtherBox').classList.toggle('hidden', document.getElementById('relationship').value !== 'その他');
   }
 
   function toggleEmploymentInsuranceFields() {
-    const weeklyHours = document.getElementById('weeklyHours').value;
-    document.getElementById('employmentInsuranceFields').classList.toggle('hidden', weeklyHours !== '20時間以上');
+    const v = document.getElementById('weeklyHours').value;
+    document.getElementById('employmentInsuranceFields').classList.toggle('hidden', v !== '加入');
+    document.getElementById('employmentInsuranceNonApplicable').classList.toggle('hidden', v !== '非加入');
   }
 
-  function toggleDependentNote() {
-    const value = document.getElementById('healthInsuranceDependents').value;
-    document.getElementById('dependentNote').classList.toggle('hidden', value !== 'あり');
+  function toggleHealthInsuranceFields() {
+    const v = document.getElementById('healthInsuranceStatus').value;
+    document.getElementById('healthInsuranceFields').classList.toggle('hidden', v !== '加入');
+    document.getElementById('healthInsuranceNonApplicable').classList.toggle('hidden', v !== '非加入');
+    if (v !== '加入') {
+      document.getElementById('healthInsuranceDependents').value = '';
+      document.getElementById('dependentFields').classList.add('hidden');
+      document.getElementById('mynaCard').value = '';
+      document.getElementById('mynaCardNote').classList.add('hidden');
+    }
+  }
+
+  function toggleDependentFields() {
+    document.getElementById('dependentFields').classList.toggle('hidden', document.getElementById('healthInsuranceDependents').value !== 'あり');
+  }
+
+  function toggleMynaCard() {
+    document.getElementById('mynaCardNote').classList.toggle('hidden', document.getElementById('mynaCard').value !== '利用していない');
   }
 
   function toggleBankFields() {
-    const bankType = document.getElementById('bankType').value;
-    document.getElementById('normalBankFields').classList.toggle('hidden', bankType !== '銀行');
-    document.getElementById('jpBankFields').classList.toggle('hidden', bankType !== 'ゆうちょ銀行');
+    const v = document.getElementById('bankType').value;
+    document.getElementById('normalBankFields').classList.toggle('hidden', v !== 'ゆうちょ以外の銀行');
+    document.getElementById('jpBankFields').classList.toggle('hidden', v !== 'ゆうちょ銀行');
+    document.getElementById('bankSelectedNote').classList.toggle('hidden', v === '');
   }
 
   function toggleCommuteFields() {
-    const commute = document.getElementById('commute').value;
-    document.getElementById('vehicleFields').classList.toggle('hidden', commute !== '車両' && commute !== 'バイク');
-    document.getElementById('publicTransportFields').classList.toggle('hidden', commute !== '公共交通機関');
+    const v = document.getElementById('commute').value;
+    document.getElementById('vehicleFields').classList.toggle('hidden', v !== '自動車' && v !== 'バイク');
+    document.getElementById('bicycleNote').classList.toggle('hidden', v !== '自転車');
+    document.getElementById('publicTransportFields').classList.toggle('hidden', v !== '公共交通機関');
   }
 
   function toggleSecondVehicle() {
-    const checked = document.getElementById('addSecondVehicle').checked;
-    document.getElementById('vehicle2Fields').classList.toggle('hidden', !checked);
+    document.getElementById('vehicle2Fields').classList.toggle('hidden', !document.getElementById('addSecondVehicle').checked);
   }
 
-  document.getElementById('staffForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+  function toggleDoc(id) {
+    document.getElementById(id).classList.toggle('hidden');
+  }
 
-    const email = document.getElementById('email').value;
-    const emailConfirm = document.getElementById('emailConfirm').value;
+  function updateConsentMsg(name) {
+    let val = '';
+    document.querySelectorAll('input[name="' + name + '"]').forEach(r => { if (r.checked) val = r.value; });
+    const msgEl = document.getElementById(name + 'Msg');
+    if (msgEl) msgEl.classList.toggle('hidden', val !== '同意しない');
+  }
 
-    if (email !== emailConfirm) {
-      alert('メールアドレスが一致していません。');
-      return;
+  // ===== バリデーション =====
+  function validateForm(data) {
+    const errors = [];
+    document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+
+    function markError(name) {
+      document.querySelectorAll('[name="' + name + '"]').forEach(el => el.classList.add('error'));
+    }
+    function req(name, label) {
+      if (!data[name] || data[name].trim() === '') { errors.push(label); markError(name); }
     }
 
-    const formData = new FormData(e.target);
-    const data = {};
-    formData.forEach((value, key) => {
-      data[key] = value;
-    });
+    req('lastName', '氏名（姓）'); req('firstName', '氏名（名）');
+    req('lastKana', 'フリガナ（姓）'); req('firstKana', 'フリガナ（名）');
+    req('birthYear', '生年月日（年）'); req('birthMonth', '生年月日（月）'); req('birthDay', '生年月日（日）');
+    req('zipCode', '郵便番号'); req('prefecture', '都道府県');
+    req('city', '市区町村'); req('addressLine', '番地');
+    req('phoneType', '電話番号の種類');
+    req('phone1', '電話番号'); req('phone2', '電話番号'); req('phone3', '電話番号');
+    req('email', 'メールアドレス'); req('emailConfirm', 'メールアドレス確認用');
 
+    if (data.email && data.emailConfirm && data.email !== data.emailConfirm) {
+      errors.push('メールアドレスが一致していません');
+      document.getElementById('emailConfirm').classList.add('error');
+      document.getElementById('emailError').style.display = 'block';
+    }
+
+    req('emergencyLastName', '緊急連絡先 氏名（姓）'); req('emergencyFirstName', '緊急連絡先 氏名（名）');
+    req('emergencyLastKana', '緊急連絡先 フリガナ（姓）'); req('emergencyFirstKana', '緊急連絡先 フリガナ（名）');
+    req('relationship', '続柄');
+    req('emergencyMobile1', '緊急連絡先 携帯電話');
+    req('healthInsuranceStatus', '健康保険 加入の有無');
+    if (data.healthInsuranceStatus === '加入') {
+      req('healthInsuranceDependents', '健康保険の扶養家族');
+      req('mynaCard', 'マイナ保険証の利用状況');
+    }
+    req('weeklyHours', '雇用保険 加入の有無');
+    req('bankType', '金融機関の種類');
+    req('commute', '通勤手段');
+    if (data.commute === '公共交通機関') req('nearestStation', '最寄駅・バス停');
+    req('privacyConsent', '個人情報の利用について');
+    req('employmentNoticeElectronicConsent', '労働条件通知書の電子交付について');
+    req('payslipWebConsent', '給与明細書の電子交付について');
+
+    return errors;
+  }
+
+  // ===== 確認画面 =====
+  let pendingData = null;
+
+  function v(data, key) {
+    return (data[key] || '').trim() || '―';
+  }
+
+  function buildConfirmHTML(data) {
+    const commute = data.commute || '';
+    const bankType = data.bankType || '';
+    const weeklyHours = data.weeklyHours || '';
+    const healthStatus = data.healthInsuranceStatus || '';
+    const resignationType = data.resignationDateType || '';
+    let html = '';
+
+    html += '<div class="confirm-section">本人情報</div><table class="confirm-table">';
+    html += '<tr><th>氏名</th><td>' + v(data,'lastName') + '　' + v(data,'firstName') + '</td></tr>';
+    html += '<tr><th>フリガナ</th><td>' + v(data,'lastKana') + '　' + v(data,'firstKana') + '</td></tr>';
+    html += '<tr><th>性別</th><td>' + v(data,'gender') + '</td></tr>';
+    html += '<tr><th>生年月日</th><td>' + v(data,'birthYear') + '年' + v(data,'birthMonth') + '月' + v(data,'birthDay') + '日</td></tr>';
+    html += '</table>';
+
+    html += '<div class="confirm-section">住所</div><table class="confirm-table">';
+    html += '<tr><th>郵便番号</th><td>' + v(data,'zipCode') + '</td></tr>';
+    html += '<tr><th>都道府県</th><td>' + v(data,'prefecture') + '</td></tr>';
+    html += '<tr><th>市区町村</th><td>' + v(data,'city') + '</td></tr>';
+    html += '<tr><th>番地</th><td>' + v(data,'addressLine') + '</td></tr>';
+    if ((data.building||'').trim()) html += '<tr><th>ビル・マンション名等</th><td>' + data.building + '</td></tr>';
+    html += '</table>';
+
+    html += '<div class="confirm-section">連絡先</div><table class="confirm-table">';
+    html += '<tr><th>電話番号の種類</th><td>' + v(data,'phoneType') + '</td></tr>';
+    html += '<tr><th>電話番号</th><td>' + [data.phone1,data.phone2,data.phone3].filter(Boolean).join('-') + '</td></tr>';
+    html += '<tr><th>メールアドレス</th><td>' + v(data,'email') + '</td></tr>';
+    html += '</table>';
+
+    html += '<div class="confirm-section">緊急連絡先</div><table class="confirm-table">';
+    html += '<tr><th>氏名</th><td>' + v(data,'emergencyLastName') + '　' + v(data,'emergencyFirstName') + '</td></tr>';
+    html += '<tr><th>フリガナ</th><td>' + v(data,'emergencyLastKana') + '　' + v(data,'emergencyFirstKana') + '</td></tr>';
+    const rel = data.relationship === 'その他' ? 'その他（' + v(data,'relationshipOther') + '）' : v(data,'relationship');
+    html += '<tr><th>続柄</th><td>' + rel + '</td></tr>';
+    html += '<tr><th>携帯電話</th><td>' + [data.emergencyMobile1,data.emergencyMobile2,data.emergencyMobile3].filter(Boolean).join('-') + '</td></tr>';
+    if ((data.emergencyWorkplace||'').trim()) html += '<tr><th>勤務先名</th><td>' + data.emergencyWorkplace + '</td></tr>';
+    if ((data.emergencyWorkPhone1||'').trim()) html += '<tr><th>勤務先電話番号</th><td>' + [data.emergencyWorkPhone1,data.emergencyWorkPhone2,data.emergencyWorkPhone3].filter(Boolean).join('-') + '</td></tr>';
+    html += '</table>';
+
+    html += '<div class="confirm-section">資格等</div><table class="confirm-table">';
+    html += '<tr><th>フォークリフト講習</th><td>' + v(data,'forklift') + '</td></tr>';
+    if ((data.hobby||'').trim()) html += '<tr><th>趣味</th><td>' + data.hobby + '</td></tr>';
+    html += '</table>';
+
+    html += '<div class="confirm-section">健康保険情報</div><table class="confirm-table">';
+    html += '<tr><th>加入の有無</th><td>' + v(data,'healthInsuranceStatus') + '</td></tr>';
+    if (healthStatus === '加入') {
+      html += '<tr><th>扶養家族</th><td>' + v(data,'healthInsuranceDependents') + '</td></tr>';
+      if (data.healthInsuranceDependents === 'あり') html += '<tr><th>扶養人数</th><td>' + v(data,'dependentCount') + '人</td></tr>';
+      html += '<tr><th>マイナ保険証</th><td>' + v(data,'mynaCard') + '</td></tr>';
+    }
+    html += '</table>';
+
+    html += '<div class="confirm-section">雇用保険情報</div><table class="confirm-table">';
+    html += '<tr><th>加入の有無</th><td>' + v(data,'weeklyHours') + '</td></tr>';
+    if (weeklyHours === '加入') {
+      const insNum = [data.employmentInsuranceNumber1,data.employmentInsuranceNumber2,data.employmentInsuranceNumber3].filter(Boolean).join('-');
+      html += '<tr><th>雇用保険被保険者番号</th><td>' + (insNum||'―') + '</td></tr>';
+      if ((data.previousCompany||'').trim()) html += '<tr><th>前職の会社名</th><td>' + data.previousCompany + '</td></tr>';
+      if (resignationType === '指定する' && (data.previousResignationDate||'').trim()) {
+        html += '<tr><th>前職の退職日</th><td>' + data.previousResignationDate + '</td></tr>';
+      } else if (resignationType === '不明') {
+        html += '<tr><th>前職の退職日</th><td>不明</td></tr>';
+      }
+    }
+    html += '</table>';
+
+    html += '<div class="confirm-section">給与振込先</div><table class="confirm-table">';
+    html += '<tr><th>金融機関の種類</th><td>' + v(data,'bankType') + '</td></tr>';
+    if (bankType === 'ゆうちょ以外の銀行') {
+      html += '<tr><th>銀行名</th><td>' + v(data,'bankName') + '</td></tr>';
+      html += '<tr><th>支店名</th><td>' + v(data,'branchName') + '</td></tr>';
+      html += '<tr><th>口座種別</th><td>' + v(data,'accountType') + '</td></tr>';
+      html += '<tr><th>口座番号</th><td>' + v(data,'accountNumber') + '</td></tr>';
+    } else if (bankType === 'ゆうちょ銀行') {
+      html += '<tr><th>記号・番号</th><td>' + [data.jpBankSymbol,data.jpBankNumber].filter(Boolean).join('-') + '</td></tr>';
+    }
+    html += '<tr><th>口座名義</th><td>' + v(data,'accountHolderLastKana') + '　' + v(data,'accountHolderFirstKana') + '</td></tr>';
+    html += '</table>';
+
+    html += '<div class="confirm-section">通勤情報</div><table class="confirm-table">';
+    html += '<tr><th>通勤手段</th><td>' + v(data,'commute') + '</td></tr>';
+    if (commute === '自動車' || commute === 'バイク') {
+      const v1num = [data.vehicle1Area,data.vehicle1Class,data.vehicle1Kana,data.vehicle1Number].filter(Boolean).join(' ');
+      html += '<tr><th>車両①ナンバー</th><td>' + (v1num||'―') + '</td></tr>';
+      html += '<tr><th>車両①車種</th><td>' + [data.vehicle1Maker,data.vehicle1Model].filter(Boolean).join(' ') + '</td></tr>';
+      if ((data.vehicle1Color||'').trim()) html += '<tr><th>車両①色</th><td>' + data.vehicle1Color + '</td></tr>';
+      if ((data.vehicle2Area||data.vehicle2Number||'').trim()) {
+        const v2num = [data.vehicle2Area,data.vehicle2Class,data.vehicle2Kana,data.vehicle2Number].filter(Boolean).join(' ');
+        html += '<tr><th>車両②ナンバー</th><td>' + (v2num||'―') + '</td></tr>';
+        html += '<tr><th>車両②車種</th><td>' + [data.vehicle2Maker,data.vehicle2Model].filter(Boolean).join(' ') + '</td></tr>';
+        if ((data.vehicle2Color||'').trim()) html += '<tr><th>車両②色</th><td>' + data.vehicle2Color + '</td></tr>';
+      }
+    }
+    if (commute === '公共交通機関') {
+      html += '<tr><th>最寄駅・バス停</th><td>' + v(data,'nearestStation') + '</td></tr>';
+      if ((data.transportRoute||'').trim()) html += '<tr><th>経路</th><td>' + data.transportRoute + '</td></tr>';
+    }
+    html += '</table>';
+
+    html += '<div class="confirm-section">各種同意事項</div><table class="confirm-table">';
+    html += '<tr><th>個人情報の利用</th><td>' + v(data,'privacyConsent') + '</td></tr>';
+    html += '<tr><th>労働条件通知書電子交付</th><td>' + v(data,'employmentNoticeElectronicConsent') + '</td></tr>';
+    html += '<tr><th>給与明細書電子交付</th><td>' + v(data,'payslipWebConsent') + '</td></tr>';
+    html += '</table>';
+
+    return html;
+  }
+
+  function closeConfirm() {
+    document.getElementById('confirmOverlay').style.display = 'none';
+  }
+
+  // ===== 実際の送信処理（fetch版） =====
+  function doSubmit() {
+    if (!pendingData) return;
+    const data = pendingData;
+    const confirmBtn = document.getElementById('confirmSubmitBtn');
     const submitBtn = document.getElementById('submitBtn');
-    submitBtn.disabled = true;
-    submitBtn.textContent = '送信中...';
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = '送信中...';
 
     fetch(GAS_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
     .then(() => {
-      alert('送信が完了しました。');
-      e.target.reset();
+      document.getElementById('confirmOverlay').style.display = 'none';
+      const successEl = document.getElementById('successMsg');
+      successEl.style.display = 'block';
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('staffForm').reset();
       toggleRelationshipOther();
       toggleEmploymentInsuranceFields();
-      toggleDependentNote();
+      toggleHealthInsuranceFields();
+      toggleDependentFields();
+      toggleMynaCard();
       toggleBankFields();
       toggleCommuteFields();
       toggleSecondVehicle();
+      toggleResignationDate();
+      ['privacyConsent','employmentNoticeElectronicConsent','payslipWebConsent'].forEach(function(name) {
+        const msgEl = document.getElementById(name + 'Msg');
+        if (msgEl) msgEl.classList.add('hidden');
+      });
+      pendingData = null;
     })
     .catch(() => {
-      alert('エラーが発生しました。もう一度お試しください。');
+      const errEl = document.getElementById('formError');
+      errEl.textContent = 'エラーが発生しました。もう一度お試しください。';
+      errEl.style.display = 'block';
+      document.getElementById('confirmOverlay').style.display = 'none';
     })
     .finally(() => {
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = '送信する';
       submitBtn.disabled = false;
       submitBtn.textContent = '送信する';
     });
+  }
+
+  // ===== フォーム送信（確認画面表示） =====
+  document.getElementById('staffForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = {};
+    formData.forEach((value, key) => { data[key] = value; });
+
+    const errors = validateForm(data);
+    const errEl = document.getElementById('formError');
+
+    if (errors.length > 0) {
+      errEl.textContent = '未入力の項目があります：' + errors.join('、');
+      errEl.style.display = 'block';
+      errEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    errEl.style.display = 'none';
+    pendingData = data;
+    document.getElementById('confirmContent').innerHTML = buildConfirmHTML(data);
+    document.getElementById('confirmOverlay').style.display = 'block';
+    document.getElementById('confirmOverlay').scrollTop = 0;
   });
 </script>
 
