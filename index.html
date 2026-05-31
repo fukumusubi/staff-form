@@ -1079,35 +1079,48 @@
       data.email = 'メールアドレスなし';
     }
 
-    google.script.run
-      .withSuccessHandler(function() {
-        const successEl = document.getElementById('successMsg');
-        successEl.style.display = 'block';
-        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        document.getElementById('staffForm').reset();
-        document.getElementById('noEmail').checked = false;
-        toggleNoEmail();
-        toggleRelationshipOther();
-        toggleEmploymentInsuranceFields();
-        toggleHealthInsuranceFields();
-        toggleDependentFields();
-        toggleMynaCard();
-        toggleSalaryTransfer();
-        toggleBankFields();
-        toggleCommuteFields();
-        toggleSecondVehicle();
-        toggleResignationDate();
-        ['privacyConsent','employmentNoticeElectronicConsent','payslipWebConsent'].forEach(function(name) {
-          const msgEl = document.getElementById(name + 'Msg');
-          if (msgEl) msgEl.classList.add('hidden');
-        });
-        pendingData = null;
-      })
-      .withFailureHandler(function(error) {
-        errEl.textContent = 'エラーが発生しました：' + error.message;
-        errEl.style.display = 'block';
-      })
-      .submitForm(data);
+   fetch(GAS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      document.getElementById('confirmOverlay').style.display = 'none';
+      const successEl = document.getElementById('successMsg');
+      successEl.style.display = 'block';
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      document.getElementById('staffForm').reset();
+      document.getElementById('noEmail').checked = false;
+      toggleNoEmail();
+      toggleRelationshipOther();
+      toggleEmploymentInsuranceFields();
+      toggleHealthInsuranceFields();
+      toggleDependentFields();
+      toggleMynaCard();
+      toggleSalaryTransfer();
+      toggleBankFields();
+      toggleCommuteFields();
+      toggleSecondVehicle();
+      toggleResignationDate();
+      ['privacyConsent','employmentNoticeElectronicConsent','payslipWebConsent'].forEach(function(name) {
+        const msgEl = document.getElementById(name + 'Msg');
+        if (msgEl) msgEl.classList.add('hidden');
+      });
+      pendingData = null;
+    })
+    .catch(() => {
+      const errEl = document.getElementById('formError');
+      errEl.textContent = 'エラーが発生しました。もう一度お試しください。';
+      errEl.style.display = 'block';
+      document.getElementById('confirmOverlay').style.display = 'none';
+    })
+    .finally(() => {
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = '送信する';
+      submitBtn.disabled = false;
+      submitBtn.textContent = '送信する';
+    });
   }
 
   document.getElementById('staffForm').addEventListener('submit', function(e) {
