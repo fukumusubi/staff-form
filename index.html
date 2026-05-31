@@ -56,7 +56,6 @@
     .confirm-buttons button { flex: 1; padding: 12px; font-size: 15px; border: none; border-radius: 8px; cursor: pointer; }
     .btn-back { background: #888; color: #fff; }
     .btn-submit-confirm { background: #222; color: #fff; }
-    .logo-img { height: 44px; position: absolute; right: 0; }
   </style>
 </head>
 
@@ -64,7 +63,7 @@
 <div class="container">
   <div style="display:flex; align-items:center; justify-content:center; margin:8px 0 18px; position:relative;">
     <h1 style="margin:0; font-size:20px;">スタッフ登録フォーム</h1>
-    <img src="logo.png" alt="ロゴ" style="height:60px; position:absolute; right:0;">
+    <img src="data:image/png;base64,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" alt="ロゴ" style="height:44px; position:absolute; right:0;">
   </div>
 
   <form id="staffForm">
@@ -73,14 +72,14 @@
 
     <label>氏名</label>
     <div class="row">
-      <div><input type="text" name="lastName" placeholder="姓" required autofocus></div>
-      <div><input type="text" name="firstName" placeholder="名" required></div>
+      <div><input type="text" name="lastName" placeholder="姓" autofocus></div>
+      <div><input type="text" name="firstName" placeholder="名"></div>
     </div>
 
     <label>フリガナ</label>
     <div class="row">
-      <div><input type="text" name="lastKana" placeholder="セイ" required onblur="toFullWidthKana(this)"></div>
-      <div><input type="text" name="firstKana" placeholder="メイ" required onblur="toFullWidthKana(this)"></div>
+      <div><input type="text" name="lastKana" placeholder="セイ" onblur="toFullWidthKana(this)"></div>
+      <div><input type="text" name="firstKana" placeholder="メイ" onblur="toFullWidthKana(this)"></div>
     </div>
 
     <label>性別</label>
@@ -93,9 +92,9 @@
 
     <label>生年月日</label>
     <div class="row">
-      <div><select name="birthYear" id="birthYear" required><option value="">年</option></select></div>
-      <div><select name="birthMonth" id="birthMonth" required><option value="">月</option></select></div>
-      <div><select name="birthDay" id="birthDay" required><option value="">日</option></select></div>
+      <div><select name="birthYear" id="birthYear"><option value="">年</option></select></div>
+      <div><select name="birthMonth" id="birthMonth"><option value="">月</option></select></div>
+      <div><select name="birthDay" id="birthDay"><option value="">日</option></select></div>
     </div>
 
     <h2>住所</h2>
@@ -104,11 +103,11 @@
       <span class="label-text">郵便番号</span>
       <span class="label-note">ハイフンなしの7桁で入力してください。</span>
     </div>
-    <input type="text" name="zipCode" id="zipCode" inputmode="numeric" maxlength="7" placeholder="例：7100055" required>
+    <input type="text" name="zipCode" id="zipCode" inputmode="numeric" maxlength="7" placeholder="例：7100055">
     <button type="button" class="small-button" onclick="searchAddress()">住所検索</button>
 
     <label>都道府県</label>
-    <select name="prefecture" id="prefecture" required>
+    <select name="prefecture" id="prefecture">
       <option value="">選択してください</option>
       <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
       <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option>
@@ -121,10 +120,10 @@
     </select>
 
     <label>市区町村</label>
-    <input type="text" name="city" id="city" placeholder="例：倉敷市阿知" required>
+    <input type="text" name="city" id="city" placeholder="例：倉敷市阿知">
 
     <label>番地</label>
-    <input type="text" name="addressLine" id="addressLine" placeholder="例：１丁目１番１号" required onblur="toFullWidthAddress(this)">
+    <input type="text" name="addressLine" id="addressLine" placeholder="例：１丁目１番１号" onblur="toFullWidthAddress(this)">
 
     <label>ビル・マンション名等</label>
     <input type="text" name="building" placeholder="例：〇〇マンション１０１号室" onblur="toFullWidthBuilding(this)">
@@ -132,7 +131,7 @@
     <h2>連絡先</h2>
 
     <label>電話番号の種類</label>
-    <select name="phoneType" required>
+    <select name="phoneType">
       <option value="">選択してください</option>
       <option value="携帯電話">携帯電話</option>
       <option value="自宅電話">自宅電話</option>
@@ -140,11 +139,11 @@
 
     <label>電話番号</label>
     <div class="row">
-      <div><input type="text" name="phone1" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
+      <div><input type="text" name="phone1" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
       <span class="dash">-</span>
-      <div><input type="text" name="phone2" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
+      <div><input type="text" name="phone2" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
       <span class="dash">-</span>
-      <div><input type="text" name="phone3" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
+      <div><input type="text" name="phone3" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
     </div>
 
     <div class="label-row">
@@ -169,18 +168,18 @@
 
     <label>親族氏名</label>
     <div class="row">
-      <div><input type="text" name="emergencyLastName" placeholder="姓" required></div>
-      <div><input type="text" name="emergencyFirstName" placeholder="名" required></div>
+      <div><input type="text" name="emergencyLastName" placeholder="姓"></div>
+      <div><input type="text" name="emergencyFirstName" placeholder="名"></div>
     </div>
 
     <label>フリガナ</label>
     <div class="row">
-      <div><input type="text" name="emergencyLastKana" placeholder="セイ" required onblur="toFullWidthKana(this)"></div>
-      <div><input type="text" name="emergencyFirstKana" placeholder="メイ" required onblur="toFullWidthKana(this)"></div>
+      <div><input type="text" name="emergencyLastKana" placeholder="セイ" onblur="toFullWidthKana(this)"></div>
+      <div><input type="text" name="emergencyFirstKana" placeholder="メイ" onblur="toFullWidthKana(this)"></div>
     </div>
 
     <label>続柄</label>
-    <select name="relationship" id="relationship" onchange="toggleRelationshipOther()" required>
+    <select name="relationship" id="relationship" onchange="toggleRelationshipOther()">
       <option value="">選択してください</option>
       <option value="親">親</option>
       <option value="配偶者">配偶者</option>
@@ -196,11 +195,11 @@
 
     <label>携帯番号等</label>
     <div class="row">
-      <div><input type="text" name="emergencyMobile1" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
+      <div><input type="text" name="emergencyMobile1" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
       <span class="dash">-</span>
-      <div><input type="text" name="emergencyMobile2" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
+      <div><input type="text" name="emergencyMobile2" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
       <span class="dash">-</span>
-      <div><input type="text" name="emergencyMobile3" inputmode="numeric" maxlength="4" required onblur="toHalfWidthNum(this)"></div>
+      <div><input type="text" name="emergencyMobile3" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
     </div>
 
     <div class="label-row">
@@ -239,7 +238,7 @@
       <span class="label-text">加入の有無</span>
       <span class="label-note">ご自身の加入の有無については「入社手続きのご案内」（書面）をご確認ください。</span>
     </div>
-    <select name="healthInsuranceStatus" id="healthInsuranceStatus" onchange="toggleHealthInsuranceFields()" required>
+    <select name="healthInsuranceStatus" id="healthInsuranceStatus" onchange="toggleHealthInsuranceFields()">
       <option value="">選択してください</option>
       <option value="加入">加入</option>
       <option value="非加入">非加入</option>
@@ -251,7 +250,7 @@
 
     <div id="healthInsuranceFields" class="hidden">
       <label>健康保険の扶養家族</label>
-      <select name="healthInsuranceDependents" id="healthInsuranceDependents" onchange="toggleDependentFields()" required>
+      <select name="healthInsuranceDependents" id="healthInsuranceDependents" onchange="toggleDependentFields()">
         <option value="">選択してください</option>
         <option value="あり">あり</option>
         <option value="なし">なし</option>
@@ -271,7 +270,7 @@
       <div class="label-row" style="margin-top:12px;">
         <span class="label-text">マイナ保険証の利用状況</span>
       </div>
-      <select name="mynaCard" id="mynaCard" onchange="toggleMynaCard()" required>
+      <select name="mynaCard" id="mynaCard" onchange="toggleMynaCard()">
         <option value="">選択してください</option>
         <option value="利用している">利用している</option>
         <option value="利用していない">利用していない</option>
@@ -287,7 +286,7 @@
       <span class="label-text">加入の有無</span>
       <span class="label-note">ご自身の加入の有無については「入社手続きのご案内」（書面）をご確認ください。</span>
     </div>
-    <select name="weeklyHours" id="weeklyHours" onchange="toggleEmploymentInsuranceFields()" required>
+    <select name="weeklyHours" id="weeklyHours" onchange="toggleEmploymentInsuranceFields()">
       <option value="">選択してください</option>
       <option value="加入">加入</option>
       <option value="非加入">非加入</option>
@@ -347,6 +346,7 @@
 
     <h2>給与振込先</h2>
 
+    <!-- 給与振込の同意 -->
     <div class="consent-block">
       <div class="consent-title">
         給与振込の同意について
@@ -357,7 +357,7 @@
       </div>
       <div class="radio-row">
         <label class="radio-label">
-          <input type="radio" name="salaryTransferConsent" value="同意する" onchange="toggleSalaryTransfer()" required>同意する
+          <input type="radio" name="salaryTransferConsent" value="同意する" onchange="toggleSalaryTransfer()">同意する
         </label>
         <label class="radio-label">
           <input type="radio" name="salaryTransferConsent" value="同意しない" onchange="toggleSalaryTransfer()">同意しない
@@ -366,9 +366,10 @@
       <div id="salaryTransferMsg" class="consent-msg-black hidden">※現金で給付します。次の項目へ進んでください。</div>
     </div>
 
+    <!-- 同意した場合のみ表示 -->
     <div id="bankTransferFields" class="hidden">
       <label>金融機関の種類</label>
-      <select name="bankType" id="bankType" onchange="toggleBankFields()" required>
+      <select name="bankType" id="bankType" onchange="toggleBankFields()">
         <option value="">選択してください</option>
         <option value="ゆうちょ以外の銀行">ゆうちょ以外の銀行</option>
         <option value="ゆうちょ銀行">ゆうちょ銀行</option>
@@ -421,7 +422,7 @@
     <h2>通勤情報</h2>
 
     <label>通勤手段</label>
-    <select name="commute" id="commute" onchange="toggleCommuteFields()" required>
+    <select name="commute" id="commute" onchange="toggleCommuteFields()">
       <option value="">選択してください</option>
       <option value="自動車">自動車</option>
       <option value="バイク">バイク</option>
@@ -505,7 +506,7 @@
       </div>
       <div class="radio-row">
         <label class="radio-label">
-          <input type="radio" name="privacyConsent" value="同意する" onchange="updateConsentMsg('privacyConsent')" required>同意する
+          <input type="radio" name="privacyConsent" value="同意する" onchange="updateConsentMsg('privacyConsent')">同意する
         </label>
         <label class="radio-label">
           <input type="radio" name="privacyConsent" value="同意しない" onchange="updateConsentMsg('privacyConsent')">同意しない
@@ -526,7 +527,7 @@
       </div>
       <div class="radio-row">
         <label class="radio-label">
-          <input type="radio" name="employmentNoticeElectronicConsent" value="同意する" onchange="updateConsentMsg('employmentNoticeElectronicConsent')" required>同意する
+          <input type="radio" name="employmentNoticeElectronicConsent" value="同意する" onchange="updateConsentMsg('employmentNoticeElectronicConsent')">同意する
         </label>
         <label class="radio-label">
           <input type="radio" name="employmentNoticeElectronicConsent" value="同意しない" onchange="updateConsentMsg('employmentNoticeElectronicConsent')">同意しない
@@ -547,7 +548,7 @@
       </div>
       <div class="radio-row">
         <label class="radio-label">
-          <input type="radio" name="payslipWebConsent" value="同意する" onchange="updateConsentMsg('payslipWebConsent')" required>同意する
+          <input type="radio" name="payslipWebConsent" value="同意する" onchange="updateConsentMsg('payslipWebConsent')">同意する
         </label>
         <label class="radio-label">
           <input type="radio" name="payslipWebConsent" value="同意しない" onchange="updateConsentMsg('payslipWebConsent')">同意しない
@@ -579,10 +580,6 @@
 </div>
 
 <script>
-  // ロゴをJavaScriptで設定（base64が長いためHTMLから分離して確実に読み込む）
-  const GAS_URL = 'https://script.google.com/macros/s/AKfycbwvrut4NctmvPUY2ARi4x7hai-iYi31dl9tTMKffpRN5IPdbM6KizfHpZ_3sDzzipzmXA/exec';
-
-  // 生年月日
   const currentYear = new Date().getFullYear();
   const birthYear = document.getElementById('birthYear');
   for (let y = currentYear - 15; y >= currentYear - 90; y--) {
@@ -1075,57 +1072,42 @@
   function doSubmit() {
     if (!pendingData) return;
     const data = pendingData;
-    const confirmBtn = document.getElementById('confirmSubmitBtn');
-    const submitBtn = document.getElementById('submitBtn');
-    confirmBtn.disabled = true;
-    confirmBtn.textContent = '送信中...';
+    const errEl = document.getElementById('formError');
+    document.getElementById('confirmOverlay').style.display = 'none';
 
     if (document.getElementById('noEmail').checked) {
       data.email = 'メールアドレスなし';
     }
 
-    fetch(GAS_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    .then(() => {
-      document.getElementById('confirmOverlay').style.display = 'none';
-      const successEl = document.getElementById('successMsg');
-      successEl.style.display = 'block';
-      successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      document.getElementById('staffForm').reset();
-      document.getElementById('noEmail').checked = false;
-      toggleNoEmail();
-      toggleRelationshipOther();
-      toggleEmploymentInsuranceFields();
-      toggleHealthInsuranceFields();
-      toggleDependentFields();
-      toggleMynaCard();
-      toggleSalaryTransfer();
-      toggleBankFields();
-      toggleCommuteFields();
-      toggleSecondVehicle();
-      toggleResignationDate();
-      ['privacyConsent','employmentNoticeElectronicConsent','payslipWebConsent'].forEach(function(name) {
-        const msgEl = document.getElementById(name + 'Msg');
-        if (msgEl) msgEl.classList.add('hidden');
-      });
-      pendingData = null;
-    })
-    .catch(() => {
-      const errEl = document.getElementById('formError');
-      errEl.textContent = 'エラーが発生しました。もう一度お試しください。';
-      errEl.style.display = 'block';
-      document.getElementById('confirmOverlay').style.display = 'none';
-    })
-    .finally(() => {
-      confirmBtn.disabled = false;
-      confirmBtn.textContent = '送信する';
-      submitBtn.disabled = false;
-      submitBtn.textContent = '送信する';
-    });
+    google.script.run
+      .withSuccessHandler(function() {
+        const successEl = document.getElementById('successMsg');
+        successEl.style.display = 'block';
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        document.getElementById('staffForm').reset();
+        document.getElementById('noEmail').checked = false;
+        toggleNoEmail();
+        toggleRelationshipOther();
+        toggleEmploymentInsuranceFields();
+        toggleHealthInsuranceFields();
+        toggleDependentFields();
+        toggleMynaCard();
+        toggleSalaryTransfer();
+        toggleBankFields();
+        toggleCommuteFields();
+        toggleSecondVehicle();
+        toggleResignationDate();
+        ['privacyConsent','employmentNoticeElectronicConsent','payslipWebConsent'].forEach(function(name) {
+          const msgEl = document.getElementById(name + 'Msg');
+          if (msgEl) msgEl.classList.add('hidden');
+        });
+        pendingData = null;
+      })
+      .withFailureHandler(function(error) {
+        errEl.textContent = 'エラーが発生しました：' + error.message;
+        errEl.style.display = 'block';
+      })
+      .submitForm(data);
   }
 
   document.getElementById('staffForm').addEventListener('submit', function(e) {
