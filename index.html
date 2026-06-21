@@ -86,7 +86,6 @@
       <option value="">選択してください</option>
       <option value="男">男</option>
       <option value="女">女</option>
-      <option value="回答しない">回答しない</option>
     </select>
 
     <label>生年月日</label>
@@ -906,6 +905,7 @@
 
     req('lastName', '氏名（姓）'); req('firstName', '氏名（名）');
     req('lastKana', 'フリガナ（姓）'); req('firstKana', 'フリガナ（名）');
+    req('gender', '性別');
     req('birthYear', '生年月日（年）'); req('birthMonth', '生年月日（月）'); req('birthDay', '生年月日（日）');
     req('zipCode', '郵便番号'); req('prefecture', '都道府県');
     req('city', '市区町村'); req('addressLine', '番地');
