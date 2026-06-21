@@ -218,41 +218,50 @@
       <span class="dash">-</span>
       <div><input type="text" name="emergencyWorkPhone3" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
     </div>
-    
-    <label>親族氏名（２人目）</label>
-    <div class="row">
-      <div><input type="text" name="emergencyLastName2" placeholder="姓"></div>
-      <div><input type="text" name="emergencyFirstName2" placeholder="名"></div>
-    </div>
 
-    <label>フリガナ</label>
-    <div class="row">
-      <div><input type="text" name="emergencyLastKana2" placeholder="セイ" onblur="toFullWidthKana(this)"></div>
-      <div><input type="text" name="emergencyFirstKana2" placeholder="メイ" onblur="toFullWidthKana(this)"></div>
-    </div>
+    <label class="checkbox-label" style="margin-top:14px;">
+      <input type="checkbox" id="addEmergency2" onchange="toggleEmergency2()">
+      <span>２人目の緊急連絡先を登録する（任意）</span>
+    </label>
 
-    <label>続柄</label>
-    <select name="relationship2" id="relationship2" onchange="toggleRelationshipOther2()">
-      <option value="">選択してください</option>
-      <option value="親">親</option>
-      <option value="配偶者">配偶者</option>
-      <option value="子">子</option>
-      <option value="兄弟姉妹">兄弟姉妹</option>
-      <option value="その他">その他</option>
-    </select>
+    <div id="emergency2Fields" class="hidden">
 
-    <div id="relationshipOtherBox2" class="hidden">
-      <label>続柄 その他</label>
-      <input type="text" name="relationshipOther2" placeholder="例：祖父母、叔父、叔母など">
-    </div>
+      <label>親族氏名（２人目）</label>
+      <div class="row">
+        <div><input type="text" name="emergencyLastName2" placeholder="姓"></div>
+        <div><input type="text" name="emergencyFirstName2" placeholder="名"></div>
+      </div>
 
-    <label>携帯番号等</label>
-    <div class="row">
-      <div><input type="text" name="emergencyMobile1_2" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
-      <span class="dash">-</span>
-      <div><input type="text" name="emergencyMobile2_2" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
-      <span class="dash">-</span>
-      <div><input type="text" name="emergencyMobile3_2" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
+      <label>フリガナ</label>
+      <div class="row">
+        <div><input type="text" name="emergencyLastKana2" placeholder="セイ" onblur="toFullWidthKana(this)"></div>
+        <div><input type="text" name="emergencyFirstKana2" placeholder="メイ" onblur="toFullWidthKana(this)"></div>
+      </div>
+
+      <label>続柄</label>
+      <select name="relationship2" id="relationship2" onchange="toggleRelationshipOther2()">
+        <option value="">選択してください</option>
+        <option value="親">親</option>
+        <option value="配偶者">配偶者</option>
+        <option value="子">子</option>
+        <option value="兄弟姉妹">兄弟姉妹</option>
+        <option value="その他">その他</option>
+      </select>
+
+      <div id="relationshipOtherBox2" class="hidden">
+        <label>続柄 その他</label>
+        <input type="text" name="relationshipOther2" placeholder="例：祖父母、叔父、叔母など">
+      </div>
+
+      <label>携帯番号等</label>
+      <div class="row">
+        <div><input type="text" name="emergencyMobile1_2" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
+        <span class="dash">-</span>
+        <div><input type="text" name="emergencyMobile2_2" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
+        <span class="dash">-</span>
+        <div><input type="text" name="emergencyMobile3_2" inputmode="numeric" maxlength="4" onblur="toHalfWidthNum(this)"></div>
+      </div>
+
     </div>
 
     <h2>資格等</h2>
@@ -809,6 +818,10 @@
 
   function toggleRelationshipOther2() {
     document.getElementById('relationshipOtherBox2').classList.toggle('hidden', document.getElementById('relationship2').value !== 'その他');
+  }
+
+  function toggleEmergency2() {
+    document.getElementById('emergency2Fields').classList.toggle('hidden', !document.getElementById('addEmergency2').checked);
   }
 
   function toggleEmploymentInsuranceFields() {
